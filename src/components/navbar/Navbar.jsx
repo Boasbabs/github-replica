@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import {
   Menu,
   Input,
@@ -8,14 +9,65 @@ import {
   Image
 } from "semantic-ui-react";
 import Logo from "../images/githubmarklight32.png";
+import { API_PATH_BASE, DEFAULT_QUERY } from "../../utils/constants";
 
 class Navbar extends Component {
-  state = {};
+  state = {
+    username: "",
+    name: "",
+    avatar: "",
+    location: "",
+    repos: "",
+    followers: "",
+    following: "",
+    homeUrl: "",
+    notFound: ""
+  };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
+  handleSubmit = event => {
+    event.preventDefault();
+  };
+
+  componentDidMount() {
+    this.fetchGitUser(DEFAULT_QUERY);
+  }
+
+  fetchGitUser(username) {
+    axios
+      .get(`${API_PATH_BASE}/${username}`)
+      .then(response => {
+        const userData = response.data;
+        this.setState({
+          username: userData.login,
+          name: userData.name,
+          avatar: userData.avatar_url,
+          location: userData.location,
+          repos: userData.public_repos,
+          followers: userData.followers,
+          following: userData.following,
+          homeUrl: userData.html_url,
+          notFound: userData.message
+        });
+      })
+      .catch(error => {
+        // handle error
+        console.log(error);
+      });
+  }
+
   render() {
-    const { activeItem } = this.state;
+    const {
+      activeItem,
+      username,
+      name,
+      avatar,
+      location,
+      followers,
+      following,
+      repos
+    } = this.state;
 
     return (
       <div>
@@ -98,10 +150,18 @@ class Navbar extends Component {
           ipsam, porro possimus sequi nobis saepe veniam, ex temporibus
           molestias dolor nemo nesciunt magnam velit voluptates itaque explicabo
           non iste nihil.
+          <div>
+            <p>Name: {name}</p>
+            <p>Login: {username}</p>
+            <p>Image_link: {avatar}</p>
+            <p>Location: {location || "not provided"}</p>
+            <p>Repos: {repos}</p>
+            <p>followers: {followers}</p>
+            <p>following: {following}</p>
+          </div>
         </Container>
       </div>
     );
   }
 }
-
 export default Navbar;
