@@ -6,14 +6,15 @@ import {
   Icon,
   Dropdown,
   Container,
-  Image
+  Image,
+  Form
 } from "semantic-ui-react";
 import Logo from "../images/githubmarklight32.png";
 import { API_PATH_BASE, DEFAULT_QUERY } from "../../utils/constants";
 
 class Navbar extends Component {
   state = {
-    username: "",
+    username: DEFAULT_QUERY,
     name: "",
     avatar: "",
     location: "",
@@ -28,6 +29,25 @@ class Navbar extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.fetchGitUser(this.state.username);
+
+    this.setState({
+      username: "",
+      name: "",
+      avatar: "",
+      location: "",
+      repos: "",
+      followers: "",
+      following: "",
+      homeUrl: "",
+      notFound: ""
+    });
+  };
+
+  handleChange = event => {
+    this.setState({
+      username: event.target.value
+    });
   };
 
   componentDidMount() {
@@ -54,6 +74,7 @@ class Navbar extends Component {
       .catch(error => {
         // handle error
         console.log(error);
+        alert("Username does not exist");
       });
   }
 
@@ -76,7 +97,15 @@ class Navbar extends Component {
             <img alt="site logo" src={Logo} />
           </Menu.Item>
           <Menu.Item>
-            <Input inverted icon="search" placeholder="Search or jump to" />
+            <Form onSubmit={this.handleSubmit}>
+              <Input
+                icon="search"
+                placeholder="Search or jump to"
+                onChange={this.handleChange}
+                value={this.state.username}
+                name="username"
+              />
+            </Form>
           </Menu.Item>
           <Menu.Item
             name="pullRequest"
