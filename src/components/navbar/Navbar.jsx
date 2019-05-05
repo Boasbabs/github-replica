@@ -11,6 +11,7 @@ import {
 } from "semantic-ui-react";
 import Logo from "../images/githubmarklight32.png";
 import { API_PATH_BASE, DEFAULT_QUERY } from "../../utils/constants";
+import { userAPICall } from "../../utils/api";
 
 class Navbar extends Component {
   state = {
@@ -55,20 +56,19 @@ class Navbar extends Component {
   }
 
   fetchGitUser(username) {
-    axios
-      .get(`${API_PATH_BASE}/${username}`)
-      .then(response => {
-        const userData = response.data;
+    userAPICall
+      .getBio(username)
+      .then(result => {
         this.setState({
-          username: userData.login,
-          name: userData.name,
-          avatar: userData.avatar_url,
-          location: userData.location,
-          repos: userData.public_repos,
-          followers: userData.followers,
-          following: userData.following,
-          homeUrl: userData.html_url,
-          notFound: userData.message
+          username: result.login,
+          name: result.name,
+          avatar: result.avatar_url,
+          location: result.location,
+          repos: result.public_repos,
+          followers: result.followers,
+          following: result.following,
+          homeUrl: result.html_url,
+          notFound: result.message
         });
       })
       .catch(error => {
