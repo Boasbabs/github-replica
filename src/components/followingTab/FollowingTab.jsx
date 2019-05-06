@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Grid, List, Header, Button, Icon, Image } from "semantic-ui-react";
 
-class FollowersTab extends Component {
+class FollowingTab extends Component {
   state = {};
   render() {
     return (
@@ -11,7 +11,9 @@ class FollowersTab extends Component {
             <List divided verticalAlign="middle" relaxed size="medium">
               <List.Item fluid>
                 <Image
-                  rounded size='tiny' verticalAlign='middle'
+                  rounded
+                  size="tiny"
+                  verticalAlign="middle"
                   src="https://react.semantic-ui.com/images/avatar/small/rachel.png"
                 />
                 <List.Content style={{}}>
@@ -47,4 +49,4 @@ class FollowersTab extends Component {
   }
 }
 
-export default FollowersTab;
+export default FollowingTab;
