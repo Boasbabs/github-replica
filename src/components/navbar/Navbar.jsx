@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import Footer from "../footer";
 import {
   Menu,
   Input,
@@ -182,19 +182,6 @@ class Navbar extends Component {
         </Menu>
 
         <Container>
-          {/* Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita
-          ipsam, porro possimus sequi nobis saepe veniam, ex temporibus
-          molestias dolor nemo nesciunt magnam velit voluptates itaque explicabo
-          non iste <nihil className=""></nihil>
-          <div>
-            <p>Name: {name}</p>
-            <p>Login: {username}</p>
-            <p>Image_link: {avatar}</p>
-            <p>Location: {location || "not provided"}</p>
-            <p>Repos: {repos}</p>
-            <p>followers: {followers}</p>
-            <p>following: {following}</p>
-          </div> */}
           <Grid columns={2} padded>
             <Grid.Column width={4}>
               <Card>
@@ -260,7 +247,7 @@ class Navbar extends Component {
                 >
                   Repositories
                   <Label circular size="mini">
-                    0
+                    {repos}
                   </Label>
                 </Menu.Item>
                 <Menu.Item
@@ -290,7 +277,7 @@ class Navbar extends Component {
                 >
                   Followers
                   <Label circular size="mini">
-                    0
+                    {followers || 0}
                   </Label>
                 </Menu.Item>
                 <Menu.Item
@@ -300,7 +287,7 @@ class Navbar extends Component {
                 >
                   Following
                   <Label circular size="mini">
-                    2
+                    {following || 0}
                   </Label>
                 </Menu.Item>
               </Menu>
@@ -311,15 +298,17 @@ class Navbar extends Component {
                     <Card.Content>
                       <Card.Header>
                         {" "}
-                        <a href="">Matthew</a>
+                        <a href="">repo title</a>
                       </Card.Header>
                       <Card.Description style={{ padding: "5px 0 18px" }}>
-                        Matthew is a musician living in Nashville.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Culpa, quisquam rem distinctio veniam
+                        necessitatibus.
                       </Card.Description>
                       <Card.Meta>
                         <List horizontal>
                           <List.Item>
-                            <Icon name="star" color='grey' />
+                            <Icon name="star" color="grey" />
                             &nbsp;22
                           </List.Item>
                           <List.Item>
@@ -334,10 +323,12 @@ class Navbar extends Component {
                     <Card.Content>
                       <Card.Header>
                         {" "}
-                        <a href="">Matthew</a>
+                        <a href="">repo title</a>
                       </Card.Header>
                       <Card.Description style={{ padding: "5px 0 18px" }}>
-                        Matthew is a musician living in Nashville.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Culpa, quisquam rem distinctio veniam
+                        necessitatibus.
                       </Card.Description>
                       <Card.Meta>
                         <List horizontal>
@@ -357,6 +348,7 @@ class Navbar extends Component {
               </Grid>
             </Grid.Column>
           </Grid>
+          <Footer/>
         </Container>
       </div>
     );
