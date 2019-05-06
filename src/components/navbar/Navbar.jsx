@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Footer from "../footer";
-import OverviewDetail from "../overviewDetail";
+import OverviewTab from "../overviewTab";
+import StarsTab from "../starsTab";
+import RepositoriesTab from "../repositoriesTab";
 import {
   Menu,
   Input,
@@ -292,13 +294,14 @@ class Navbar extends Component {
                   </Label>
                 </Menu.Item>
               </Menu>
-              <Header>Popular repositories </Header>
-              <Grid padded="vertically">
-                <OverviewDetail></OverviewDetail>
-              </Grid>
+
+              {/* <OverviewTab></OverviewTab> */}
+              {/* <RepositoriesTab></RepositoriesTab> */}
+              <StarsTab></StarsTab>
+              
             </Grid.Column>
           </Grid>
-          <Footer/>
+          <Footer />
         </Container>
       </div>
     );
