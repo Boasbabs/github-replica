@@ -18,13 +18,13 @@ class FollowingTab extends Component {
                 />
                 <List.Content style={{}}>
                   <Header as="h3" color="grey">
-                    <a href="">User Title</a>
+                    <a href="">User Following Title</a>
                   </Header>
                   <List.Description
                     style={{ marginTop: "10px", marginBottom: "10px" }}
                   >
-                    Laravel 5 Package to Detect Users Browsers, Devices,
-                    Languages and Operating Systems
+                    Description of Laravel 5 Package to Detect Users Browsers, Devices,
+                    Languages
                   </List.Description>
                   <List horizontal relaxed>
                     <List.Item>

@@ -9,14 +9,16 @@ class FollowersTab extends Component {
         <Grid padded="vertically">
           <Grid.Column>
             <List divided verticalAlign="middle" relaxed size="medium">
-              <List.Item fluid>
+              <List.Item>
                 <Image
-                  rounded size='tiny' verticalAlign='middle'
+                  rounded
+                  size="tiny"
+                  verticalAlign="middle"
                   src="https://react.semantic-ui.com/images/avatar/small/rachel.png"
                 />
                 <List.Content style={{}}>
                   <Header as="h3" color="grey">
-                    <a href="">User Title</a>
+                    <a href="">Follower Title</a>
                   </Header>
                   <List.Description
                     style={{ marginTop: "10px", marginBottom: "10px" }}

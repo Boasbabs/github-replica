@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link} from "react-router-dom";
 import { Menu, Input, Icon, Dropdown, Image, Form } from "semantic-ui-react";
 import Logo from "../images/githubmarklight32.png";
 
@@ -16,7 +17,9 @@ class Navbar extends Component {
       <Fragment>
         <Menu inverted borderless size="large">
           <Menu.Item>
+            <Link to="/">
             <img alt="site logo" src={Logo} />
+            </Link>
           </Menu.Item>
           <Menu.Item>
             <Form onSubmit={handleSubmit}>

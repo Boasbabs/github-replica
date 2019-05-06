@@ -8,6 +8,7 @@ import Navbar from "../navbar";
 import Footer from "../footer";
 import OverviewTab from "../overviewTab";
 import StarsTab from "../starsTab";
+import ProjectsTab from "../projectsTab";
 import FollowersTab from "../followersTab";
 import FollowingTab from "../followingTab";
 import RepositoriesTab from "../repositoriesTab";
@@ -16,7 +17,7 @@ import FourOhFour from "../fourOhfour";
 
 // Utils import
 import Routes from "../../routes";
-import { API_PATH_BASE, DEFAULT_QUERY } from "../../utils/constants";
+import { DEFAULT_QUERY } from "../../utils/constants";
 import { userAPICall } from "../../utils/api";
 
 /**
@@ -126,15 +127,19 @@ class App extends Component {
                     name="Overview"
                     active={activeItem === "Overview"}
                     onClick={this.handleItemClick}
+                    as={Link}
+                    to="/"
                   >
-                    <Link to="/">Overview</Link>
+                    Overview
                   </Menu.Item>
                   <Menu.Item
                     name="Repositories"
                     active={activeItem === "Repositories"}
                     onClick={this.handleItemClick}
+                    as={Link}
+                    to="/repos"
                   >
-                    <Link to="/repos">Repositories</Link>
+                    Repositories
                     <Label circular size="mini">
                       {repos}
                     </Label>
@@ -143,8 +148,10 @@ class App extends Component {
                     name="Projects"
                     active={activeItem === "Projects"}
                     onClick={this.handleItemClick}
+                    as={Link}
+                    to="/projects"
                   >
-                    <Link to="/projects">Projects</Link>
+                    Projects
                     <Label circular size="mini">
                       0
                     </Label>
@@ -153,8 +160,10 @@ class App extends Component {
                     name="Stars"
                     active={activeItem === "Stars"}
                     onClick={this.handleItemClick}
+                    as={Link}
+                    to="/stars"
                   >
-                    <Link to="/stars">Stars</Link>
+                    Stars
                     <Label circular size="mini">
                       0
                     </Label>
@@ -163,8 +172,10 @@ class App extends Component {
                     name="Followers"
                     active={activeItem === "Followers"}
                     onClick={this.handleItemClick}
+                    as={Link}
+                    to="/followers"
                   >
-                    <Link to="/followers">Followers</Link>
+                    Followers
                     <Label circular size="mini">
                       {followers || 0}
                     </Label>
@@ -173,8 +184,10 @@ class App extends Component {
                     name="Following"
                     active={activeItem === "Following"}
                     onClick={this.handleItemClick}
+                    as={Link}
+                    to="/following"
                   >
-                    <Link to="/following">Following</Link>
+                    Following
                     <Label circular size="mini">
                       {following || 0}
                     </Label>
@@ -185,11 +198,17 @@ class App extends Component {
                   <Route
                     exact
                     path={Routes.root().root}
-                    component={OverviewTab}
+                    render={props => (
+                      <OverviewTab {...props} username={username} />
+                    )}
                   />
                   <Route
                     path={Routes.root().followers}
                     component={FollowersTab}
+                  />
+                  <Route
+                    path={Routes.root().projects}
+                    component={ProjectsTab}
                   />
                   <Route
                     path={Routes.root().following}
