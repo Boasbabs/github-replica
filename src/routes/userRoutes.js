@@ -1,10 +1,10 @@
- const routes = {
-    root: "/",
-    repositories: "/repo",
-    projects: "/projects",
-    stars: "/stars",
-    followers: "/followers",
-    following: "/following"
-  };
+const routes = {
+  root: "/",
+  repositories: "/repos",
+  projects: "/projects",
+  stars: "/stars",
+  followers: "/followers",
+  following: "/following"
+};
 
-  export default routes;
+export default routes;
