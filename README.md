@@ -4,7 +4,7 @@ This is a react app developed according to mockup by [Babalola Simeon](https://t
 
 ### Deployment
 
-This project was deployed here: [Netlify](https://netlify.com)
+This project was deployed here: [Netlify](https://fibre-github-replica.netlify.com/)
 
 ### Libraries
 

@@ -7,7 +7,13 @@ import {
   Dropdown,
   Container,
   Image,
-  Form
+  Form,
+  Grid,
+  Card,
+  Header,
+  Button,
+  List,
+  Divider
 } from "semantic-ui-react";
 import Logo from "../images/githubmarklight32.png";
 import { API_PATH_BASE, DEFAULT_QUERY } from "../../utils/constants";
@@ -74,7 +80,7 @@ class Navbar extends Component {
       .catch(error => {
         // handle error
         console.log(error);
-        alert("Username does not exist");
+        alert("An Error occurred or Username does not exist");
       });
   }
 
@@ -175,10 +181,10 @@ class Navbar extends Component {
         </Menu>
 
         <Container>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita
+          {/* Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita
           ipsam, porro possimus sequi nobis saepe veniam, ex temporibus
           molestias dolor nemo nesciunt magnam velit voluptates itaque explicabo
-          non iste nihil.
+          non iste <nihil className=""></nihil>
           <div>
             <p>Name: {name}</p>
             <p>Login: {username}</p>
@@ -187,7 +193,56 @@ class Navbar extends Component {
             <p>Repos: {repos}</p>
             <p>followers: {followers}</p>
             <p>following: {following}</p>
-          </div>
+          </div> */}
+          <Grid columns={2} padded>
+            <Grid.Column width={4}>
+              <Card>
+                <Image src={avatar} />
+                {/* <Card.Content extra>
+                  <p>Location: {location || "not provided"}</p>
+                </Card.Content> */}
+              </Card>
+              <Header as="h1">
+                {name}
+                <Header.Subheader>{username}</Header.Subheader>
+              </Header>
+              <Button fluid>Follow</Button>
+              <List>
+                <List.Item>
+                  <a href="">Block or report user</a>
+                </List.Item>
+              </List>
+              <Divider hidden/>
+              <Divider/>
+              <Divider hidden/>
+              <List>
+                <List.Item>
+                  <List.Icon name="users" />
+                  <List.Content>Bio details here</List.Content>
+                </List.Item>
+                <List.Item>
+                <List.Icon name="map marker alternate" style={{paddingRight: "7px"}}/>
+                  <List.Content style={{paddingRight: "7px"}}>{location || "not provided"}</List.Content>
+                  
+                </List.Item>
+                <List.Item>
+                  <List.Icon name="mail" />
+                  <List.Content>
+                    <a href="mailto:jack@semantic-ui.com">
+                      Email details here
+                    </a>
+                  </List.Content>
+                </List.Item>
+                <List.Item>
+                  <List.Icon name="linkify" />
+                  <List.Content>
+                    <a href="">Blog details here</a>
+                  </List.Content>
+                </List.Item>
+              </List>
+            </Grid.Column>
+            <Grid.Column width={12}>Second column</Grid.Column>
+          </Grid>
         </Container>
       </div>
     );
