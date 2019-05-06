@@ -4,6 +4,7 @@ import OverviewTab from "../overviewTab";
 import StarsTab from "../starsTab";
 import FollowersTab from "../followersTab";
 import RepositoriesTab from "../repositoriesTab";
+import UserProfile from "../userProfile";
 import {
   Menu,
   Input,
@@ -188,52 +189,12 @@ class Navbar extends Component {
         <Container>
           <Grid columns={2} padded>
             <Grid.Column width={4}>
-              <Card>
-                <Image src={avatar} />
-                {/* <Card.Content extra>
-                  <p>Location: {location || "not provided"}</p>
-                </Card.Content> */}
-              </Card>
-              <Header as="h1">
-                {name}
-                <Header.Subheader>{username}</Header.Subheader>
-              </Header>
-              <Button fluid>Follow</Button>
-              <List>
-                <List.Item>
-                  <a href="">Block or report user</a>
-                </List.Item>
-              </List>
-              <Divider hidden />
-              <Divider />
-              <Divider hidden />
-              <List>
-                <List.Item>
-                  <List.Icon name="users" />
-                  <List.Content>Bio details here</List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon
-                    name="map marker alternate"
-                    style={{ paddingRight: "7px" }}
-                  />
-                  <List.Content style={{ paddingRight: "7px" }}>
-                    {location || "not provided"}
-                  </List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name="mail" />
-                  <List.Content>
-                    <a href="mailto:jack@semantic-ui.com">Email details here</a>
-                  </List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name="linkify" />
-                  <List.Content>
-                    <a href="">Blog details here</a>
-                  </List.Content>
-                </List.Item>
-              </List>
+              <UserProfile
+                username={username}
+                avatar={avatar}
+                location={location}
+                name={name}
+              />
             </Grid.Column>
             <Grid.Column width={12}>
               <Menu pointing secondary widths={6}>
@@ -299,8 +260,7 @@ class Navbar extends Component {
               {/* <OverviewTab></OverviewTab> */}
               {/* <RepositoriesTab></RepositoriesTab> */}
               {/* <StarsTab></StarsTab> */}
-              <FollowersTab></FollowersTab>
-              
+              <FollowersTab />
             </Grid.Column>
           </Grid>
           <Footer />
