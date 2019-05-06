@@ -13,7 +13,8 @@ import {
   Header,
   Button,
   List,
-  Divider
+  Divider,
+  Label
 } from "semantic-ui-react";
 import Logo from "../images/githubmarklight32.png";
 import { API_PATH_BASE, DEFAULT_QUERY } from "../../utils/constants";
@@ -212,25 +213,27 @@ class Navbar extends Component {
                   <a href="">Block or report user</a>
                 </List.Item>
               </List>
-              <Divider hidden/>
-              <Divider/>
-              <Divider hidden/>
+              <Divider hidden />
+              <Divider />
+              <Divider hidden />
               <List>
                 <List.Item>
                   <List.Icon name="users" />
                   <List.Content>Bio details here</List.Content>
                 </List.Item>
                 <List.Item>
-                <List.Icon name="map marker alternate" style={{paddingRight: "7px"}}/>
-                  <List.Content style={{paddingRight: "7px"}}>{location || "not provided"}</List.Content>
-                  
+                  <List.Icon
+                    name="map marker alternate"
+                    style={{ paddingRight: "7px" }}
+                  />
+                  <List.Content style={{ paddingRight: "7px" }}>
+                    {location || "not provided"}
+                  </List.Content>
                 </List.Item>
                 <List.Item>
                   <List.Icon name="mail" />
                   <List.Content>
-                    <a href="mailto:jack@semantic-ui.com">
-                      Email details here
-                    </a>
+                    <a href="mailto:jack@semantic-ui.com">Email details here</a>
                   </List.Content>
                 </List.Item>
                 <List.Item>
@@ -241,7 +244,118 @@ class Navbar extends Component {
                 </List.Item>
               </List>
             </Grid.Column>
-            <Grid.Column width={12}>Second column</Grid.Column>
+            <Grid.Column width={12}>
+              <Menu pointing secondary widths={6}>
+                <Menu.Item
+                  name="Overview"
+                  active={activeItem === "Overview"}
+                  onClick={this.handleItemClick}
+                >
+                  Overview
+                </Menu.Item>
+                <Menu.Item
+                  name="Repositories"
+                  active={activeItem === "Repositories"}
+                  onClick={this.handleItemClick}
+                >
+                  Repositories
+                  <Label circular size="mini">
+                    0
+                  </Label>
+                </Menu.Item>
+                <Menu.Item
+                  name="Projects"
+                  active={activeItem === "Projects"}
+                  onClick={this.handleItemClick}
+                >
+                  Projects
+                  <Label circular size="mini">
+                    0
+                  </Label>
+                </Menu.Item>
+                <Menu.Item
+                  name="Stars"
+                  active={activeItem === "Stars"}
+                  onClick={this.handleItemClick}
+                >
+                  Stars
+                  <Label circular size="mini">
+                    0
+                  </Label>
+                </Menu.Item>
+                <Menu.Item
+                  name="Followers"
+                  active={activeItem === "Followers"}
+                  onClick={this.handleItemClick}
+                >
+                  Followers
+                  <Label circular size="mini">
+                    0
+                  </Label>
+                </Menu.Item>
+                <Menu.Item
+                  name="Following"
+                  active={activeItem === "Following"}
+                  onClick={this.handleItemClick}
+                >
+                  Following
+                  <Label circular size="mini">
+                    2
+                  </Label>
+                </Menu.Item>
+              </Menu>
+              <Header>Popular repositories </Header>
+              <Grid padded="vertically">
+                <Card.Group itemsPerRow={2}>
+                  <Card style={{ width: "385px" }} padded>
+                    <Card.Content>
+                      <Card.Header>
+                        {" "}
+                        <a href="">Matthew</a>
+                      </Card.Header>
+                      <Card.Description style={{ padding: "5px 0 18px" }}>
+                        Matthew is a musician living in Nashville.
+                      </Card.Description>
+                      <Card.Meta>
+                        <List horizontal>
+                          <List.Item>
+                            <Icon name="star" color='grey' />
+                            &nbsp;22
+                          </List.Item>
+                          <List.Item>
+                            <Icon name="fork" />
+                            &nbsp;22
+                          </List.Item>
+                        </List>
+                      </Card.Meta>
+                    </Card.Content>
+                  </Card>
+                  <Card style={{ width: "385px" }} padded>
+                    <Card.Content>
+                      <Card.Header>
+                        {" "}
+                        <a href="">Matthew</a>
+                      </Card.Header>
+                      <Card.Description style={{ padding: "5px 0 18px" }}>
+                        Matthew is a musician living in Nashville.
+                      </Card.Description>
+                      <Card.Meta>
+                        <List horizontal>
+                          <List.Item>
+                            <Icon name="star" />
+                            &nbsp;22
+                          </List.Item>
+                          <List.Item>
+                            <Icon name="fork" />
+                            &nbsp;22
+                          </List.Item>
+                        </List>
+                      </Card.Meta>
+                    </Card.Content>
+                  </Card>
+                </Card.Group>
+              </Grid>
+            </Grid.Column>
           </Grid>
         </Container>
       </div>
