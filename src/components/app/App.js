@@ -68,9 +68,9 @@ class App extends Component {
     this.fetchGitUser(DEFAULT_QUERY);
   }
 
-  fetchGitUser(username) {
+  fetchGitUser(query) {
     userAPICall
-      .getBio(username)
+      .getBio(query)
       .then(result => {
         this.setState({
           username: result.login,

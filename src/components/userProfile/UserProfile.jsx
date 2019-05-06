@@ -4,7 +4,7 @@ import { Card, List, Button, Divider, Header, Image } from "semantic-ui-react";
 class UserProfile extends Component {
   state = {};
   render() {
-    const { avatar, name, username, location } = this.props;
+    const { avatar, name, username, location, bio } = this.props;
     return (
       <Fragment>
         <Card>
@@ -17,7 +17,7 @@ class UserProfile extends Component {
         <Button fluid>Follow</Button>
         <List>
           <List.Item>
-            <a href="">Block or report user</a>
+            <a href="https://twitter.com/boasbabs">Block or report user</a>
           </List.Item>
         </List>
         <Divider hidden />
@@ -26,7 +26,7 @@ class UserProfile extends Component {
         <List>
           <List.Item>
             <List.Icon name="users" />
-            <List.Content>Bio details here</List.Content>
+            <List.Content>{bio || "not provided"}</List.Content>
           </List.Item>
           <List.Item>
             <List.Icon
@@ -46,7 +46,7 @@ class UserProfile extends Component {
           <List.Item>
             <List.Icon name="linkify" />
             <List.Content>
-              <a href="">Blog details here</a>
+              <a href="https://twitter.com/boasbabs">Blog details here</a>
             </List.Content>
           </List.Item>
         </List>

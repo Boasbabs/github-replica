@@ -9,16 +9,16 @@ class FollowingTab extends Component {
         <Grid padded="vertically">
           <Grid.Column>
             <List divided verticalAlign="middle" relaxed size="medium">
-              <List.Item fluid>
+              <List.Item>
                 <Image
                   rounded
                   size="tiny"
                   verticalAlign="middle"
                   src="https://react.semantic-ui.com/images/avatar/small/rachel.png"
                 />
-                <List.Content style={{}}>
+                <List.Content>
                   <Header as="h3" color="grey">
-                    <a href="">User Following Title</a>
+                    <a href="https://twitter.com/boasbabs">User Following Title</a>
                   </Header>
                   <List.Description
                     style={{ marginTop: "10px", marginBottom: "10px" }}

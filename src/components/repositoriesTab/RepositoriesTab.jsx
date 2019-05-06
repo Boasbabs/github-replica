@@ -47,7 +47,7 @@ class Repositories extends Component {
             </List>
             <Divider />
             <List divided verticalAlign="middle" relaxed size="medium">
-              <List.Item fluid>
+              <List.Item>
                 <List.Content floated="right">
                   <Button icon>
                     <Icon name="star" /> &nbsp; Star
@@ -56,7 +56,7 @@ class Repositories extends Component {
 
                 <List.Content style={{ marginBottom: "10px" }}>
                   <Header as="h3" color="grey">
-                    <a href="">Repo Title</a>
+                    <a href="https://twitter.com/boasbabs">Repo Title</a>
                   </Header>
                   <List.Description style={{ marginTop: "10px" }}>
                     Laravel 5 Package to Detect Users Browsers, Devices,
@@ -74,7 +74,7 @@ class Repositories extends Component {
                       &nbsp;22
                     </List.Item>
                     <List.Item>
-                      <Icon name="llaw" />
+                      <Icon name="law" />
                       &nbsp;MIT License
                     </List.Item>
                     <List.Item>Updated 23 minutes ago</List.Item>

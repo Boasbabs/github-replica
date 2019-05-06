@@ -19,12 +19,12 @@ class StarsTab extends Component {
             <List>
               <List.Item>
                 <List.Content floated="left">
-                  <Header.Subheader textAlign="left">
+                  <Header.Subheader>
                     REPOSITORIES
                   </Header.Subheader>
                 </List.Content>
                 <List.Content floated="right">
-                  <a href="">
+                  <a href="https://twitter.com/boasbabs">
                   <Dropdown text={`Filter`}>
                     <Dropdown.Menu>
                       <Dropdown.Item text="All" />
@@ -40,7 +40,7 @@ class StarsTab extends Component {
             </List>
             <Divider />
             <List divided verticalAlign="middle" relaxed size="medium">
-              <List.Item fluid>
+              <List.Item>
                 <List.Content floated="right">
                   <Button icon>
                     <Icon name="star" /> &nbsp; Star
@@ -49,7 +49,7 @@ class StarsTab extends Component {
 
                 <List.Content style={{ marginBottom: "10px" }}>
                   <Header as="h3" color="grey">
-                    <a href="">Repo Title</a>
+                    <a href="https://twitter.com/boasbabs">Repo Title</a>
                   </Header>
                   <List.Description style={{ marginTop: "10px" }}>
                     Laravel 5 Package to Detect Users Browsers, Devices,

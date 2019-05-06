@@ -16,9 +16,9 @@ class FollowersTab extends Component {
                   verticalAlign="middle"
                   src="https://react.semantic-ui.com/images/avatar/small/rachel.png"
                 />
-                <List.Content style={{}}>
+                <List.Content>
                   <Header as="h3" color="grey">
-                    <a href="">Follower Title</a>
+                    <a href="https://twitter.com/boasbabs">Follower Title</a>
                   </Header>
                   <List.Description
                     style={{ marginTop: "10px", marginBottom: "10px" }}
