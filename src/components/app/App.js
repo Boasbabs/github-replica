@@ -1,30 +1,24 @@
+// Library
 import React, { Component } from "react";
+import { Menu, Container, Grid, Label } from "semantic-ui-react";
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+
+// Components import
 import Navbar from "../navbar";
 import Footer from "../footer";
 import OverviewTab from "../overviewTab";
 import StarsTab from "../starsTab";
 import FollowersTab from "../followersTab";
+import FollowingTab from "../followingTab";
 import RepositoriesTab from "../repositoriesTab";
 import UserProfile from "../userProfile";
-import {
-  Menu,
-  Input,
-  Icon,
-  Dropdown,
-  Container,
-  Image,
-  Form,
-  Grid,
-  Card,
-  Header,
-  Button,
-  List,
-  Divider,
-  Label
-} from "semantic-ui-react";
-import Logo from "../images/githubmarklight32.png";
+import FourOhFour from "../fourOhfour";
+
+// Utils import
+import Routes from "../../routes"
 import { API_PATH_BASE, DEFAULT_QUERY } from "../../utils/constants";
 import { userAPICall } from "../../utils/api";
+
 
 class App extends Component {
   state = {
@@ -36,10 +30,12 @@ class App extends Component {
     followers: "",
     following: "",
     homeUrl: "",
-    notFound: ""
+    notFound: "",
+    activeItem: "Overview"
   };
 
- 
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+
   handleSubmit = event => {
     event.preventDefault();
     this.fetchGitUser(this.state.username);
@@ -101,6 +97,7 @@ class App extends Component {
       repos
     } = this.state;
     return (
+      <Router>
       <div className="App">
         <Navbar
           handleChange={this.handleChange}
@@ -110,6 +107,7 @@ class App extends Component {
         <Container>
           <Grid columns={2} padded>
             <Grid.Column width={4}>
+            {/* The UserProfile component */}
               <UserProfile
                 username={username}
                 avatar={avatar}
@@ -118,6 +116,7 @@ class App extends Component {
               />
             </Grid.Column>
             <Grid.Column width={12}>
+            {/* The Menu tab here */}
               <Menu pointing secondary widths={6}>
                 <Menu.Item
                   name="Overview"
@@ -177,16 +176,21 @@ class App extends Component {
                   </Label>
                 </Menu.Item>
               </Menu>
-
-              <OverviewTab></OverviewTab>
-              {/* <RepositoriesTab></RepositoriesTab> */}
-              {/* <StarsTab></StarsTab> */}
-              {/* <FollowersTab /> */}
+              
+              <Switch>
+                <Route exact path={Routes.root().root} component={OverviewTab} />
+                <Route path={Routes.root().followers} component={FollowersTab} />
+                <Route path={Routes.root().following} component={FollowingTab} />
+                <Route path={Routes.root().repositories} component={RepositoriesTab} />
+                <Route path={Routes.root().stars} component={StarsTab} />
+                <Route component={FourOhFour} />
+              </Switch>
             </Grid.Column>
           </Grid>
           <Footer />
         </Container>
       </div>
+      </Router>
     );
   }
 }

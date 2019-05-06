@@ -8,7 +8,7 @@ This folder also includes **shared**, **styles**, & **images** for reusable comp
 resuable styles and for keeping static images respectively.
 
 All react components file name should end with **.jsx** and in **pascal case**
-e.g ListingCard, ProductCard, etc.
+e.g StarsTab, Navbar, etc.
 
 You can look at some of the folders in this directory for
 inspirations

@@ -21,6 +21,7 @@ class Navbar extends Component {
           <Menu.Item>
             <Form onSubmit={handleSubmit}>
               <Input
+              style={{ width: "300px" }}
                 icon="search"
                 placeholder="Search or jump to"
                 onChange={handleChange}
