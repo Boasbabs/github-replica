@@ -4,7 +4,6 @@ import {
   List,
   Dropdown,
   Divider,
-  Input,
   Header,
   Button,
   Icon
@@ -68,7 +67,7 @@ class StarsTab extends Component {
                       &nbsp;22
                     </List.Item>
                     <List.Item>
-                      <Icon name="llaw" />
+                      <Icon name="law" />
                       &nbsp;MIT License
                     </List.Item>
                     <List.Item>Updated 23 minutes ago</List.Item>

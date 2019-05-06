@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Footer from "../footer";
 import OverviewTab from "../overviewTab";
 import StarsTab from "../starsTab";
+import FollowersTab from "../followersTab";
 import RepositoriesTab from "../repositoriesTab";
 import {
   Menu,
@@ -297,7 +298,8 @@ class Navbar extends Component {
 
               {/* <OverviewTab></OverviewTab> */}
               {/* <RepositoriesTab></RepositoriesTab> */}
-              <StarsTab></StarsTab>
+              {/* <StarsTab></StarsTab> */}
+              <FollowersTab></FollowersTab>
               
             </Grid.Column>
           </Grid>
